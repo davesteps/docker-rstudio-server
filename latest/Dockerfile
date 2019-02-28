@@ -65,32 +65,22 @@ RUN apt-get update \
   	&& rm -rf /var/lib/apt/lists/ \
   	## Use tinytex for LaTeX installation
 
-	
-      # system libraries of general use
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    sudo \
-    pandoc-citeproc \
-    libcurl4-gnutls-dev \
-    libcairo2-dev \
-    libssl1.0.0 \
+
+
+# get gdal2.0 and spatial pkgs
+RUN add-apt-repository -y ppa:ubuntugis/ppa \
+    && apt-get update && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends \
     libproj-dev \
     proj-data \
     proj-bin \
     libgeos-dev \
     libudunits2-dev 
-
-# get gdal2.0 and spatial pkgs
-RUN add-apt-repository -y ppa:ubuntugis/ppa \
-    && apt-get update && apt-get upgrade -y \
     && apt-get install libgdal-dev gdal-bin -y \
     && apt-get autoremove \
     && apt-get clean \
     && /usr/lib/R/site-library/littler/examples/install2.r --error --deps TRUE \
     sp rgeos rgdal sf raster shinyBS shinyjs Metrics fmsb
-      
-      
-      
-      
       
       
 
