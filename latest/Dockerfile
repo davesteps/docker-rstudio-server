@@ -71,16 +71,16 @@ RUN apt-get update \
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
     && apt-get update && apt-get upgrade -y \
     #&& apt-get install -y --no-install-recommends \
-    #libproj-dev \
-    #proj-data \
-    #proj-bin \
-    #libgeos-dev \
-    #libudunits2-dev \
-    && apt-get install libgdal-dev gdal-bin -y \
-    && apt-get autoremove \
-    && apt-get clean \
-    && /usr/lib/R/site-library/littler/examples/install2.r --error --deps TRUE \
-    sp rgeos rgdal sf raster shinyBS shinyjs Metrics fmsb
+    libproj-dev 
+    ##proj-data \
+    ##proj-bin \
+    ##libgeos-dev \
+    ##libudunits2-dev \
+    #&& apt-get install libgdal-dev gdal-bin -y \
+    #&& apt-get autoremove \
+    #&& apt-get clean \
+    #&& /usr/lib/R/site-library/littler/examples/install2.r --error --deps TRUE \
+    #sp rgeos rgdal sf raster shinyBS shinyjs Metrics fmsb
       
       
 
