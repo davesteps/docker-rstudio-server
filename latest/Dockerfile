@@ -62,7 +62,7 @@ RUN apt-get update \
     	vim \
         git-all \
   	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/ \
+  	&& rm -rf /var/lib/apt/lists/
   	## Use tinytex for LaTeX installation
 
 
