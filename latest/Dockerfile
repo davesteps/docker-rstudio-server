@@ -61,22 +61,21 @@ RUN apt-get update \
     	less \
     	software-properties-common \
     	vim \
-        git-all \
+    	apt-utils \
+      git-all \
   	&& apt-get clean \
   	&& rm -rf /var/lib/apt/lists/
-  	## Use tinytex for LaTeX installation
-
-
+  	&& apt-get update && apt-get upgrade -y \
 
 # get gdal2.0 and spatial pkgs
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
     && apt-get update && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
-    libproj-dev \
-    proj-data \
-    proj-bin \
-    libgeos-dev \
-    libudunits2-dev \
+    #&& apt-get install -y --no-install-recommends \
+    #libproj-dev \
+    #proj-data \
+    #proj-bin \
+    #libgeos-dev \
+    #libudunits2-dev \
     && apt-get install libgdal-dev gdal-bin -y \
     && apt-get autoremove \
     && apt-get clean \
