@@ -59,29 +59,39 @@ RUN apt-get update \
     	ssh \
    		## just because
     	less \
-    	software-properties-common \
-    	vim \
-    	apt-utils \
+      software-properties-common \
+      vim \
+      apt-utils \
       git-all \
-  	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/ \
-  	&& apt-get update && apt-get upgrade -y 
+      && apt-get clean \
+      && rm -rf /var/lib/apt/lists/ \
+      && apt-get update && apt-get upgrade -y
 
 # get gdal2.0 and spatial pkgs
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
     && apt-get update && apt-get upgrade -y \
-    #&& apt-get install -y --no-install-recommends \
-    libproj-dev 
-    ##proj-data \
-    ##proj-bin \
-    ##libgeos-dev \
-    ##libudunits2-dev \
-    #&& apt-get install libgdal-dev gdal-bin -y \
-    #&& apt-get autoremove \
-    #&& apt-get clean \
-    #&& /usr/lib/R/site-library/littler/examples/install2.r --error --deps TRUE \
-    #sp rgeos rgdal sf raster shinyBS shinyjs Metrics fmsb
-      
+    && apt-get install -y --no-install-recommends \
+    libproj-dev \
+    proj-data \
+    proj-bin \
+    && apt-get update && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends \
+    libgeos-dev \
+    libudunits2-dev \
+    && apt-get install libgdal-dev gdal-bin -y \
+    && apt-get autoremove \
+    && apt-get clean \
+    && apt-get update && apt-get upgrade -y
+
+
+RUN R -e "install.packages(c('devtools'), repos='https://cloud.r-project.org/')" \
+    && R -e "devtools::install_version('rgeos', version = '0.3-28')"
+
+RUN /usr/lib/R/site-library/littler/examples/install2.r --error --deps TRUE \
+    sp rgdal sf raster shinyBS shinyjs Metrics fmsb
+
+
+
       
 
 EXPOSE 8787
