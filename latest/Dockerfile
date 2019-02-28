@@ -69,7 +69,7 @@ RUN apt-get update \
 
 
 # get gdal2.0 and spatial pkgs
-RUN add-apt-repository -y ppa:ubuntugis/ppa \
+RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
     && apt-get update && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
     libproj-dev \
