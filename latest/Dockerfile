@@ -29,12 +29,7 @@ RUN set -e \
       
 ## Add LaTeX, rticles and bookdown support
 ## uses dummy texlive, see FAQ 8: https://yihui.name/tinytex/faq/
-RUN add-apt-repository -y ppa:opencpu/jq \
-	&& apt-get update \
-	&& wget "https://travis-bin.yihui.name/texlive-local.deb" \
-	&& dpkg -i texlive-local.deb \
-	&& rm texlive-local.deb \
-	&& apt-get update \
+RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
     	## for rJava
     	default-jdk \
