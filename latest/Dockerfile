@@ -69,8 +69,10 @@ RUN apt-get update \
 
 # get gdal2.0 and spatial pkgs
 RUN add-apt-repository -y ppa:ubuntugis/ppa \
+
     && apt-get update && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends \
+    apt-get install software-properties-common \
     libproj-dev \
     proj-data \
     proj-bin \
