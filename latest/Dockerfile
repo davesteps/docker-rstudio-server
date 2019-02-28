@@ -29,8 +29,7 @@ RUN set -e \
       
 ## Add LaTeX, rticles and bookdown support
 ## uses dummy texlive, see FAQ 8: https://yihui.name/tinytex/faq/
-RUN apt-get install -y --no-install-recommends wget software-properties-common python-software-properties\
-	&& add-apt-repository -y ppa:opencpu/jq \
+RUN add-apt-repository -y ppa:opencpu/jq \
 	&& apt-get update \
 	&& wget "https://travis-bin.yihui.name/texlive-local.deb" \
 	&& dpkg -i texlive-local.deb \
