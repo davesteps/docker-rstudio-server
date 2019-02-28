@@ -64,8 +64,8 @@ RUN apt-get update \
     	apt-utils \
       git-all \
   	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/
-  	&& apt-get update && apt-get upgrade -y \
+  	&& rm -rf /var/lib/apt/lists/ \
+  	&& apt-get update && apt-get upgrade -y 
 
 # get gdal2.0 and spatial pkgs
 RUN add-apt-repository ppa:ubuntugis/ubuntugis-unstable \
