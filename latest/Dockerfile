@@ -75,7 +75,7 @@ RUN add-apt-repository -y ppa:ubuntugis/ppa \
     proj-data \
     proj-bin \
     libgeos-dev \
-    libudunits2-dev 
+    libudunits2-dev \
     && apt-get install libgdal-dev gdal-bin -y \
     && apt-get autoremove \
     && apt-get clean \
